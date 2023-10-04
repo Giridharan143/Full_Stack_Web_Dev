@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: rgb(14, 172, 193);
+            }
+        </style>
+        <title>DOM_1.giri</title>
+    <script type="text/javascript">
+        function convert_u_case(){
+            var y=document.f1.t1.value
+            if(y!=document.f1.t1.value.toUpperCase())
+                document.f1.t1.value=document.f1.t1.value.toUpperCase()
+            else  
+                return 
+        }
+        function convert_l_case(){
+            var y=document.f1.t1.value
+            if(y!=document.f1.t1.value.toLowerCase())
+                document.f1.t1.value=document.f1.t1.value.toLowerCase()
+            else  
+                return 
+
+        }
+
+    </script>
+    </head>
+    <body>
+        <h1>Changing the case if checkbox is clicked</h1>
+        <form name="f1">
+            <label  for="text">Enter the Text: </label>            
+            <input type="text" name="t1"><br><br>
+            <p style="font-size: smaller;font-family: Arial, Helvetica, sans-serif;">Kindly check this box for changing the cases</p>
+            Upper Case<input type="checkbox" onclick="if (this.checked) {convert_u_case()}"><br><br>
+            Lower Case<input type="checkbox" onclick="if (this.checked) {convert_l_case()}"><br><br>
+        </form>
+    </body>
+</html>

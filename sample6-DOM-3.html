@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Drag_drop_functionality.giri</title>
+<script type="text/javascript">
+var item, x_offset, y_offset; // Declare item, x_offset, and y_offset globally
+
+function catch_func(e){
+
+    item=e.currentTarget;
+    var posX=parseInt(item.style.left)
+    var posY=parseInt(item.style.top)
+    x_offset=e.clientX-posX
+    y_offset=e.clientY-posY
+    document.addEventListener("mousemove",move_func,true)
+    document.addEventListener("mouseup", drop_func,true)
+}
+
+    /*
+    item = e.currentTarget;
+    var posX = parseInt(item.style.left);
+    var posY = parseInt(item.style.top);
+    x_offset = e.clientX - posX;
+    y_offset = e.clientY - posY;
+    document.addEventListener("mousemove", move_func, true);
+    document.addEventListener("mouseup", drop_func, true);
+    e.stopPropagation();
+    e.preventDefault();
+    */
+
+function move_func(e){
+  item.style.left=(e.clientX-x_offset)
+  item.style.top=(e.clientY-y_offset)
+  e.stopPropagation()
+}
+
+
+/*
+function move_func(e){
+    item.style.left = (e.clientX - x_offset) + 'px';
+    item.style.top = (e.clientY - y_offset) + 'px';
+    e.stopPropagation();
+}
+*/
+function drop_func(e){
+    document.removeEventListener("mouseup",drop_func,true)
+    document.removeEventListener("mousemove", move_func,true)
+}
+
+/*
+function drop_func(e){
+    document.removeEventListener("mouseup", drop_func, true);
+    document.removeEventListener("mousemove", move_func, true);
+    e.stopPropagation();
+}
+*/
+</script>
+</head>
+<body>
+<h1>Drag and Drop Functionality</h1><br><br>
+<img src="123.JPG" style="position: relative;
+padding-top: 40px;
+height: 400px;
+width: 400px;
+top: 15px;
+left: 14px;
+border: 2px solid;"
+onmousedown="catch_func(event)">
+</body>
+</html>
